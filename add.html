@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1> 환자 정보 추가하기 </h1>
+
+    <form action="/action_page.php">
+        이름 :<br>
+        <input type="text" id="fname" name="fname"><br>
+
+        <p>성별 :</p>
+        <input type="radio" name="gender" value="male"> 남자
+        <input type="radio" name="gender" value="female"> 여자
+        <p></p>
+        생년월일 :<br><br>
+        <!-- <input type="text" id="birth" name="birth" ><br> -->
+        <input type="date" name="birthdate">
+
+        <p></p>
+        전화번호 : <br><br>
+        <input type="text" id="phone" name="phone"><br>
+
+        <br>사는 동네 :
+        <select name="neighbor">
+            <option value="" disabled selected> 동네 선택</option>
+            <option value="대흥동">대흥동</option>
+            <option value="두호동">두호동</option>
+            <option value="양덕동">양덕동</option>
+            <option value="여남동">여남동</option>
+            <option value="용흥동">용흥동</option>
+            <option value="우현동">우현동</option>
+            <option value="장량동">장량동</option>
+            <option value="장성동">장성동</option>
+            <option value="창포동">창포동</option>
+            <option value="환호동">환호동</option>
+            <option value="흥해읍">흥해읍</option>
+        </select>
+        <br>
+
+        <br>
+        <p>* 모든 정보 기입 후, 제출하세요 ! *</p>
+        <input type='submit' value="Submit">
+        <input type='reset' value="Reset">
+    </form>
+</body>
+
+</html>
