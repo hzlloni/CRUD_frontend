@@ -5,32 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="my.css">
     <title>Document</title>
 </head>
 
 <body>
+    <h1>환자 정보 추가하기</h1>
+    다음 항목들을 입력하시오. <p></p>
+    <form id="patientForm" action="/action_page.php">
+        이름:<br>
+        <input type="text" id="fname" name="fname" required><br>
 
-    <h1> 환자 정보 추가하기 </h1>
-
-    <form action="/action_page.php">
-        이름 :<br>
-        <input type="text" id="fname" name="fname"><br>
-
-        <p>성별 :</p>
+        <p>성별:</p>
         <input type="radio" name="gender" value="male"> 남자
         <input type="radio" name="gender" value="female"> 여자
         <p></p>
-        생년월일 :<br><br>
-        <!-- <input type="text" id="birth" name="birth" ><br> -->
+        생년월일:<br><br>
         <input type="date" name="birthdate">
 
         <p></p>
-        전화번호 : <br><br>
-        <input type="text" id="phone" name="phone"><br>
+        전화번호:<br><br>
+        <input type="text" id="phone" name="phone" placeholder="010-xxxx-yyyy" required><br>
+        <span id="phoneError" style="color: red;"></span>
 
-        <br>사는 동네 :
+        <br>사는 동네:
         <select name="neighbor">
-            <option value="" disabled selected> 동네 선택</option>
+            <option value="" disabled selected>동네 선택</option>
             <option value="대흥동">대흥동</option>
             <option value="두호동">두호동</option>
             <option value="양덕동">양덕동</option>
@@ -46,11 +46,35 @@
         <br>
 
         <br>
-        <p>* 모든 정보 기입 후, 제출하세요 ! *</p>
-        <!--<input type='submit' value="추가" onclick="alert('목록에서 삭제하였습니다.')"> -->
-        <button id="plus" onclick="alert('목록에 추가하였습니다.'); location.href='index.html';">추가</button>
-        <input type='reset' value="리셋">
+        <p>* 모든 정보 기입 후, 제출하세요! *</p>
+        <button type="button" id="submitBtn">추가</button>
+        <input type="reset" value="리셋">
     </form>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function () {
+            // 필수 입력 항목을 확인하고 비어 있으면 알림 표시
+            var fname = document.getElementById("fname").value;
+            var gender = document.querySelector("input[name='gender']:checked");
+            var birthdate = document.getElementsByName("birthdate")[0].value;
+            var phoneInput = document.getElementById("phone");
+            var phone = phoneInput.value;
+            var neighbor = document.getElementsByName("neighbor")[0].value;
+
+            var phonePattern = /^010-\d{4}-\d{4}$/;
+
+            if (!fname || !gender || !birthdate || !phone || !neighbor) {
+                alert("모든 항목에 답변을 하셔야 합니다.");
+            } else if (!phonePattern.test(phone)) {
+                document.getElementById("phoneError").textContent = "올바른 전화번호 형식이 아닙니다.";
+            } else {
+                document.getElementById("phoneError").textContent = ""; // 오류 메시지 초기화
+                // 모든 필수 항목에 답변이 있는 경우, 폼 제출
+                document.getElementById("patientForm").submit();
+                alert("추가 되었습니다.");
+            }
+        });
+    </script>
 </body>
 
 </html>
