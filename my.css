@@ -1,5 +1,5 @@
 /* 공통 스타일 */
-body {
+.body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
@@ -18,10 +18,10 @@ header {
     text-align: center;
 }
 
-nav {
+.navbar-nav {
     display: flex;
-    justify-content: center;
-    background-color: #444;
+    margin-left: 920px;
+    text-align: right;
 }
 
 /* 본문 스타일 */
