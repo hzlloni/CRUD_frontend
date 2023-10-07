@@ -1,3 +1,10 @@
+@media (max-width: 768px) {
+    /* 작은 화면에 대한 스타일 변경 */
+    .navbar-nav {
+        margin-left: 0; /* 네비게이션 메뉴의 왼쪽 여백을 없애거나 다른 값으로 조정 */
+    }
+}
+
 /* 공통 스타일 */
 .body {
     font-family: Arial, sans-serif;
@@ -20,7 +27,7 @@ header {
 
 .navbar-nav {
     display: flex;
-    margin-left: 920px;
+    margin-left: 840px;
     text-align: right;
 }
 
